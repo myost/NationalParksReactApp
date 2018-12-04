@@ -1,13 +1,13 @@
 // adding a comment test - madi
 import React, { Component } from 'react';
 import './App.css';
-import parks from './components/parks.js';
+import Parks from './components/parks.js';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <parks />
+      	<Parks />
       </div>
     );
   }
