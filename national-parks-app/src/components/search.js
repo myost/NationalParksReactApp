@@ -60,8 +60,9 @@ class Search extends React.Component {
         console.log(this.props);
 
         return(
-            <div>
-                <h2>Search for a Park: </h2>
+            <div className="search">
+                <h2>Search for a National Park: </h2>
+                <div className="input">
                 <div>
                     {regions.data.states.map((region) =>(
                         <button>
@@ -71,6 +72,7 @@ class Search extends React.Component {
                 </div>
                 <div>
                     <SearchPark parkname = {parks.data.name}/>
+                </div>
                 </div>
             </div>
         )
