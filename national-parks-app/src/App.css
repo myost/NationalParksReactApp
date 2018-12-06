@@ -1,8 +1,9 @@
 .App {
-  background-color: black;
-  color: white;
+  background-color: #FFFBF4;
+  color: black;
   margin:0;
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .search{
@@ -10,11 +11,15 @@
 	justify-content: space-around;
 	flex-direction: row;
 	min-height: 20vh;
+	background-color: #42703D;
+	color:white;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 h2{
 	width:50%;
 	padding:0 10px;
+	font-family: 'Chonburi', serif;
 }
 
 .input{
@@ -32,6 +37,7 @@ h2{
 
 .parkTitle{
 	text-align: center;
+	font-family: 'Chonburi', serif;
 }
 
 .content{
@@ -48,6 +54,10 @@ h2{
 	margin:10px;
 }
 
+img{
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .parkImg img{
 	width:100%;
 }
@@ -55,7 +65,9 @@ h2{
 .description{
 	padding:20px;
 	text-align: left;
-	background-color: rgba(192, 192, 192, .5);
+	background-color: rgba(154, 214, 148, .5);
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	color: black;
 	width:30%;
 	height: 100%;
