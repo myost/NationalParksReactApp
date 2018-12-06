@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class Parks extends React.Component {
-	render (){
+	render (props){
 		return(
 			<div className="parks">
 				<div className="parkTitle">
@@ -15,7 +15,7 @@ export default class Parks extends React.Component {
 						/>
 					</div>
 					<div className="description">
-						<p> {this.props.descript} </p>
+						<p> {this.props.desc} </p>
 					</div>
 				</div>
 			</div>
