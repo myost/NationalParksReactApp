@@ -12,11 +12,24 @@ class Search extends React.Component {
        const regions = {
             data:{
                 states: [
-                    "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC",
-                    "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA",
-                    "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE",
-                    "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC",
-                    "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"
+                    {code: "AK", name:"Alaska"}, {code: "AL", name:"Alabama"}, {code: "AR", name:"Arkansas"},
+                    {code: "AZ", name:"Arizona"}, {code: "CA", name:"California"}, {code: "CO", name:"Colorado"},
+                    {code: "CT", name:"Connecticut"}, {code: "DE", name:"Delaware"},
+                    {code: "FL", name:"Florida"}, {code: "GA", name:"Georgia"}, {code: "HI", name:"Hawaii"},
+                    {code: "IA", name:"Iowa"}, {code: "ID", name:"Idaho"}, {code: "IL", name:"Illinois"},
+                    {code: "IN", name:"Indiana"}, {code: "KS", name:"Kansas"}, {code: "KY", name:"Kentucky"},
+                    {code: "LA", name:"Louisiana"}, {code: "MA", name:"Massachusetts"}, {code: "MD", name:"Maryland"},
+                    {code: "ME", name:"Maine"}, {code: "MI", name:"Michigan"}, {code: "MN", name:"Minnesota"},
+                    {code: "MO", name:"Missouri"}, {code: "MS", name:"Mississippi"}, {code: "MT", name:"Montana"},
+                    {code: "NC", name:"North Carolina"}, {code: "ND", name:"North Dakota"}, {code: "NE", name:"Nebraska"},
+                    {code: "NH", name:"New Hampshire"}, {code: "NJ", name:"New Jersey"}, {code: "NM", name:"New Mexico"},
+                    {code: "NV", name:"Nevada"}, {code: "NY", name:"New York"}, {code: "OH", name:"Ohio"},
+                    {code: "OK", name:"Oklahoma"}, {code: "OR", name:"Oregon"}, {code: "PA", name:"Pennsylvania"},
+                    {code: "RI", name:"Rhode Island"}, {code: "SC", name:"South Carolina"},
+                    {code: "SD", name:"South Dakota"}, {code: "TN", name:"Tennessee"}, {code: "TX", name:"Texas"},
+                    {code: "UT", name:"Utah"}, {code: "VA", name:"Virginia"}, {code: "VT", name:"Vermont"},
+                    {code: "WA", name:"Washington"}, {code: "WI", name:"Wisconsin"},
+                    {code: "WV", name:"West Virginia"}, {code: "WY", name:"Wyoming"}
                 ]
             }
         }
@@ -61,17 +74,18 @@ class Search extends React.Component {
             <div className="search">
                 <h2>Search for a National Park: </h2>
                 <div className="input">
-                    <div>
-                        {regions.data.states.map((region) =>(
-                            <button>
-                                <SearchRegion regionname={region} />
-                            </button>
-                            ))
-                        }
-                    </div>
-                    <div>
-                        <SearchPark parkname = {parks.data.name}/>
-                    </div>
+                <div>
+                    <select>
+                    {regions.data.states.map((region) =>(
+                        <option value={region.code}>
+                            {region.name}
+                        </option>
+                    ))}
+                    </select>
+                </div>
+                <div>
+                    <SearchPark parkname = {parks.data.name}/>
+                </div>
                 </div>
             </div>
         )
