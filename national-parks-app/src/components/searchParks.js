@@ -4,11 +4,14 @@ class SearchPark extends React.Component {
 
     render(){
 
-        console.log(this.props.parkname);
-
+        console.log(this.props);
+        if(this.props.data){
+        	console.log(this.props);
+        }
+        console.log(this.props.data.parks);
         return(
             <div>
-                {this.props.parkname}
+        		<p>hello</p>
             </div>
         )
     }
