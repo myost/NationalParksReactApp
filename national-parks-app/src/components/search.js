@@ -6,7 +6,7 @@ import Parks from './parks.js'
 class Search extends React.Component {
     constructor(){
       super()
-      this.state = { data: null };
+      this.state = { parks: null };
 
       this.getData=this.getData.bind(this);
     }
@@ -18,6 +18,9 @@ class Search extends React.Component {
         var code = selector.options[selectedIndex].value;
         console.log(code);
 
+        fetch('https://developer.nps.gov/api/v1/parks?limit=20&q=NAtional%20Park&fields=images&stateCode='+code+'&api_key=StrO7VmO29V3pT2CoZAkdAHxzJPNRjTa2QDpG37V')
+        .then(res=>res.json())
+        .then((data)=>{this.setState({parks: data})});
     }
 
     render(){
@@ -97,7 +100,7 @@ class Search extends React.Component {
                     </select>
                 </div>
                 <div>
-                    <SearchPark parkname = {parks.data.name}/>
+                    <SearchPark parkname = ""/>
                 </div>
                 </div>
             </div>
