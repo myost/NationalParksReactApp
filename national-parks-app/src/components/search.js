@@ -7,6 +7,17 @@ class Search extends React.Component {
     constructor(){
       super()
       this.state = { data: null };
+
+      this.getData=this.getData.bind(this);
+    }
+
+    getData(e){
+        console.log("hello");
+        var selector = document.getElementById("regionSelect");
+        var selectedIndex = selector.selectedIndex;
+        var code = selector.options[selectedIndex].value;
+        console.log(code);
+
     }
 
     render(){
@@ -77,9 +88,9 @@ class Search extends React.Component {
                 <h2>Search for a National Park: </h2>
                 <div className="input">
                 <div>
-                    <select>
-                    {regions.data.states.map((region) =>(
-                        <option value={region.code}>
+                    <select id="regionSelect" onChange={this.getData}>
+                    {regions.data.states.map((region, index) =>(
+                        <option key={index} value={region.code}>
                             {region.name}
                         </option>
                     ))}
