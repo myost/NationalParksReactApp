@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default class ParkImg extends React.Component {
 	render (props) {

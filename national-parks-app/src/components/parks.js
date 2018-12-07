@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ParkTitle from './parkTitle';
 import ParkImg from './parkIMG';
 import ParkDesc from './parkDescription';
