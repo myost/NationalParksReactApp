@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchPark from './searchParks';
 import SearchRegion from './searchRegion';
+import Parks from './parks.js'
 
 class Search extends React.Component {
     constructor(){
@@ -71,6 +72,7 @@ class Search extends React.Component {
         }
         console.log(this.props);
         return(
+            <div>
             <div className="search">
                 <h2>Search for a National Park: </h2>
                 <div className="input">
@@ -87,6 +89,8 @@ class Search extends React.Component {
                     <SearchPark parkname = {parks.data.name}/>
                 </div>
                 </div>
+            </div>
+            <Parks />
             </div>
         )
     }
