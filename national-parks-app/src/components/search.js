@@ -77,7 +77,7 @@ class Search extends React.Component {
         return(
             <div>
             <div className="search">
-                <h2>Search for a National Park: </h2>
+                <h2>Search for a National Park </h2>
                 <div className="input">
                 <div className="field">
                 	<label for="regionSelect">Choose a state: </label>
