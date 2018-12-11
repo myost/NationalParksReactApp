@@ -22,12 +22,12 @@ export default class Parks extends React.Component {
 						/>
 					</div>
 					<div className="info">
-						<h2>Description </h2>
 						<div className="description">
+							<h2>Description </h2>
 							<p> {park.description} </p>
 						</div>
-						<h2>Weather </h2>
 						<div className="weather">
+							<h2>Weather </h2>
 							<p> {park.weatherInfo} </p>
 						</div>
 					</div>
