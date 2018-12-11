@@ -79,7 +79,8 @@ class Search extends React.Component {
             <div className="search">
                 <h2>Search for a National Park: </h2>
                 <div className="input">
-                <div>
+                <div className="field">
+                	<label for="regionSelect">Choose a state: </label>
                     <select id="regionSelect" onChange={this.getData}>
                     {regions.data.states.map((region, index) =>(
                         <option key={index} value={region.code}>
@@ -89,7 +90,8 @@ class Search extends React.Component {
                     </select>
                 </div>
                 <div>
-                    <div>
+                    <div className="field">
+                    <label for="parkSelect">Choose a park: </label>
                     <select id="parkSelect" onChange={this.getSelectedIndex}>
                     {this.state.data.data.map((park, index) =>(
                         <option key={index} value={park.name}>
