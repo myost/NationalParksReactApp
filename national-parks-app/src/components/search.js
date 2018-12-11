@@ -20,11 +20,14 @@ class Search extends React.Component {
     }
 
     getData(e){
-        console.log("hello");
+        // console.log("hello");
         var selector = document.getElementById("regionSelect");
         var selectedIndex = selector.selectedIndex;
         var code = selector.options[selectedIndex].value;
-        console.log(code);
+        // console.log(code);
+        //set the selected index of our dropdown to the first option
+        var parkSelector = document.getElementById("parkSelect");
+        parkSelector.selectedIndex = 0;
 
         fetch('https://developer.nps.gov/api/v1/parks?limit=20&q=NAtional%20Park&fields=images&stateCode='+code+'&api_key=StrO7VmO29V3pT2CoZAkdAHxzJPNRjTa2QDpG37V')
         .then(res=>res.json())
@@ -64,8 +67,8 @@ class Search extends React.Component {
             }
         }
 
-        console.log(this.props);
-        console.log(this.state);
+        // console.log(this.props);
+        // console.log(this.state);
 
         const {data} = this.state;
         if (data === null){
