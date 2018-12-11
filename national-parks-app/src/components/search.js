@@ -1,6 +1,4 @@
 import React from 'react';
-import SearchPark from './searchParks';
-import SearchRegion from './searchRegion';
 import Parks from './parks.js'
 
 class Search extends React.Component {
@@ -8,7 +6,6 @@ class Search extends React.Component {
       super()
       this.state = { data: null,
       				selectedPark: 0 };
-
       this.getData=this.getData.bind(this);
       this.getSelectedIndex=this.getSelectedIndex.bind(this);
     }
@@ -20,15 +17,11 @@ class Search extends React.Component {
     }
 
     getData(e){
-        // console.log("hello");
         var selector = document.getElementById("regionSelect");
         var selectedIndex = selector.selectedIndex;
         var code = selector.options[selectedIndex].value;
-        // console.log(code);
-        //set the selected index of our dropdown to the first option
         var parkSelector = document.getElementById("parkSelect");
         parkSelector.selectedIndex = 0;
-
         fetch('https://developer.nps.gov/api/v1/parks?limit=20&q=NAtional%20Park&fields=images&stateCode='+code+'&api_key=StrO7VmO29V3pT2CoZAkdAHxzJPNRjTa2QDpG37V')
         .then(res=>res.json())
         .then((data)=>{this.setState({data})})
@@ -36,12 +29,10 @@ class Search extends React.Component {
     }
 
     getSelectedIndex(e){
-    	// console.log(e);
     	var selector = document.getElementById("parkSelect");
     	var selectedIndex = selector.selectedIndex;
     	console.log(selectedIndex);
     	this.setState({selectedPark: selectedIndex});
-
     }
 
     render(){
@@ -50,7 +41,7 @@ class Search extends React.Component {
                 states: [
                     {code: "AK", name:"Alaska"}, {code: "AR", name:"Arkansas"},
                     {code: "AZ", name:"Arizona"}, {code: "CA", name:"California"}, {code: "CO", name:"Colorado"},
-                    {code: "CT", name:"Connecticut"}, {code: "FL", name:"Florida"}, {code: "GA", name:"Georgia"}, 
+                    {code: "CT", name:"Connecticut"}, {code: "FL", name:"Florida"}, {code: "GA", name:"Georgia"},
                     {code: "HI", name:"Hawaii"}, {code: "ID", name:"Idaho"}, {code: "KY", name:"Kentucky"},
                     {code: "LA", name:"Louisiana"}, {code: "MA", name:"Massachusetts"}, {code: "MD", name:"Maryland"},
                     {code: "ME", name:"Maine"}, {code: "MI", name:"Michigan"}, {code: "MN", name:"Minnesota"},
@@ -66,10 +57,6 @@ class Search extends React.Component {
                 ]
             }
         }
-
-        // console.log(this.props);
-        // console.log(this.state);
-
         const {data} = this.state;
         if (data === null){
             return null;
