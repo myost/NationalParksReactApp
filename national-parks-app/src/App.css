@@ -63,6 +63,23 @@ img{
 .parkImg img{
 	width:100%;
 }
+
+select{
+	background: rgba(0,0,0,.2);
+    width: 170px;
+    padding: 2px;
+	font-family: 'Open Sans', sans-serif;
+    font-size:.9em;
+    font-weight:600;
+    color:#fff;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 22px;
+
+}
+
+
 .info{
 	width: 30%;
 }
