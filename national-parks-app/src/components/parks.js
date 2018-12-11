@@ -21,8 +21,15 @@ export default class Parks extends React.Component {
 							alt={park.images[0].altText}
 						/>
 					</div>
-					<div className="description">
-						<p> {park.description} </p>
+					<div className="info">
+						<h2>Description </h2>
+						<div className="description">
+							<p> {park.description} </p>
+						</div>
+						<h2>Weather </h2>
+						<div className="weather">
+							<p> {park.weatherInfo} </p>
+						</div>
 					</div>
 				</div>
 			</div>
