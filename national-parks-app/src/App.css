@@ -51,9 +51,10 @@ h2{
 }
 
 .parkImg{
+	overflow: hidden;
 	max-width:50%;
-	max-height: 50%;
-	margin:10px;
+	max-height: 450px;
+	margin:none;
 }
 
 img{
