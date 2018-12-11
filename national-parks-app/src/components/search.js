@@ -20,12 +20,9 @@ class Search extends React.Component {
     }
 
     getData(e){
-        // console.log("hello");
         var selector = document.getElementById("regionSelect");
         var selectedIndex = selector.selectedIndex;
         var code = selector.options[selectedIndex].value;
-        // console.log(code);
-        //set the selected index of our dropdown to the first option
         var parkSelector = document.getElementById("parkSelect");
         parkSelector.selectedIndex = 0;
 
@@ -36,12 +33,9 @@ class Search extends React.Component {
     }
 
     getSelectedIndex(e){
-    	// console.log(e);
     	var selector = document.getElementById("parkSelect");
     	var selectedIndex = selector.selectedIndex;
-    	console.log(selectedIndex);
     	this.setState({selectedPark: selectedIndex});
-
     }
 
     render(){
@@ -50,7 +44,7 @@ class Search extends React.Component {
                 states: [
                     {code: "AK", name:"Alaska"}, {code: "AR", name:"Arkansas"},
                     {code: "AZ", name:"Arizona"}, {code: "CA", name:"California"}, {code: "CO", name:"Colorado"},
-                    {code: "CT", name:"Connecticut"}, {code: "FL", name:"Florida"}, {code: "GA", name:"Georgia"}, 
+                    {code: "CT", name:"Connecticut"}, {code: "FL", name:"Florida"}, {code: "GA", name:"Georgia"},
                     {code: "HI", name:"Hawaii"}, {code: "ID", name:"Idaho"}, {code: "KY", name:"Kentucky"},
                     {code: "LA", name:"Louisiana"}, {code: "MA", name:"Massachusetts"}, {code: "MD", name:"Maryland"},
                     {code: "ME", name:"Maine"}, {code: "MI", name:"Michigan"}, {code: "MN", name:"Minnesota"},
@@ -66,11 +60,7 @@ class Search extends React.Component {
                 ]
             }
         }
-
-        // console.log(this.props);
-        // console.log(this.state);
-
-        const {data} = this.state;
+      const {data} = this.state;
         if (data === null){
             return null;
         }
