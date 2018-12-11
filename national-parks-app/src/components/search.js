@@ -6,9 +6,11 @@ import Parks from './parks.js'
 class Search extends React.Component {
     constructor(){
       super()
-      this.state = { data: null };
+      this.state = { data: null,
+      				selectedPark: 0 };
 
       this.getData=this.getData.bind(this);
+      this.getSelectedIndex=this.getSelectedIndex.bind(this);
     }
 
     componentWillMount(){
@@ -26,31 +28,38 @@ class Search extends React.Component {
 
         fetch('https://developer.nps.gov/api/v1/parks?limit=20&q=NAtional%20Park&fields=images&stateCode='+code+'&api_key=StrO7VmO29V3pT2CoZAkdAHxzJPNRjTa2QDpG37V')
         .then(res=>res.json())
-        .then((data)=>{this.setState({data})});
+        .then((data)=>{this.setState({data})})
+        .then(this.setState({selectedPark: 0}));
+    }
+
+    getSelectedIndex(e){
+    	// console.log(e);
+    	var selector = document.getElementById("parkSelect");
+    	var selectedIndex = selector.selectedIndex;
+    	console.log(selectedIndex);
+    	this.setState({selectedPark: selectedIndex});
+
     }
 
     render(){
        const regions = {
             data:{
                 states: [
-                    {code: "AK", name:"Alaska"}, {code: "AL", name:"Alabama"}, {code: "AR", name:"Arkansas"},
+                    {code: "AK", name:"Alaska"}, {code: "AR", name:"Arkansas"},
                     {code: "AZ", name:"Arizona"}, {code: "CA", name:"California"}, {code: "CO", name:"Colorado"},
-                    {code: "CT", name:"Connecticut"}, {code: "DE", name:"Delaware"},
-                    {code: "FL", name:"Florida"}, {code: "GA", name:"Georgia"}, {code: "HI", name:"Hawaii"},
-                    {code: "IA", name:"Iowa"}, {code: "ID", name:"Idaho"}, {code: "IL", name:"Illinois"},
-                    {code: "IN", name:"Indiana"}, {code: "KS", name:"Kansas"}, {code: "KY", name:"Kentucky"},
+                    {code: "CT", name:"Connecticut"}, {code: "FL", name:"Florida"}, {code: "GA", name:"Georgia"}, 
+                    {code: "HI", name:"Hawaii"}, {code: "ID", name:"Idaho"}, {code: "KY", name:"Kentucky"},
                     {code: "LA", name:"Louisiana"}, {code: "MA", name:"Massachusetts"}, {code: "MD", name:"Maryland"},
                     {code: "ME", name:"Maine"}, {code: "MI", name:"Michigan"}, {code: "MN", name:"Minnesota"},
-                    {code: "MO", name:"Missouri"}, {code: "MS", name:"Mississippi"}, {code: "MT", name:"Montana"},
+                    {code: "MO", name:"Missouri"}, {code: "MT", name:"Montana"},
                     {code: "NC", name:"North Carolina"}, {code: "ND", name:"North Dakota"}, {code: "NE", name:"Nebraska"},
                     {code: "NH", name:"New Hampshire"}, {code: "NJ", name:"New Jersey"}, {code: "NM", name:"New Mexico"},
                     {code: "NV", name:"Nevada"}, {code: "NY", name:"New York"}, {code: "OH", name:"Ohio"},
-                    {code: "OK", name:"Oklahoma"}, {code: "OR", name:"Oregon"}, {code: "PA", name:"Pennsylvania"},
+                    {code: "OR", name:"Oregon"}, {code: "PA", name:"Pennsylvania"},
                     {code: "RI", name:"Rhode Island"}, {code: "SC", name:"South Carolina"},
                     {code: "SD", name:"South Dakota"}, {code: "TN", name:"Tennessee"}, {code: "TX", name:"Texas"},
                     {code: "UT", name:"Utah"}, {code: "VA", name:"Virginia"}, {code: "VT", name:"Vermont"},
-                    {code: "WA", name:"Washington"}, {code: "WI", name:"Wisconsin"},
-                    {code: "WV", name:"West Virginia"}, {code: "WY", name:"Wyoming"}
+                    {code: "WA", name:"Washington"}, {code: "WV", name:"West Virginia"}, {code: "WY", name:"Wyoming"}
                 ]
             }
         }
@@ -78,7 +87,7 @@ class Search extends React.Component {
                 </div>
                 <div>
                     <div>
-                    <select id="parkSelect">
+                    <select id="parkSelect" onChange={this.getSelectedIndex}>
                     {this.state.data.data.map((park, index) =>(
                         <option key={index} value={park.name}>
                             {park.name}
@@ -89,7 +98,7 @@ class Search extends React.Component {
                 </div>
                 </div>
             </div>
-            <Parks />
+            <Parks parksList={this.state.data.data} parkIndex = {this.state.selectedPark}/>
             </div>
         )
     }
